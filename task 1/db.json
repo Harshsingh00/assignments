@@ -1,0 +1,148 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "name": "harsh",
+      "password": 2323,
+      "id": "yN-RqXF6oyo"
+    },
+    {
+      "name": "harsh",
+      "password": 2323,
+      "id": "lA5OKb5a9nU"
+    },
+    {
+      "name": "harsh",
+      "password": 2323,
+      "id": "7Pe3vzxDHyQ"
+    },
+    {
+      "name": "harsh",
+      "password": 2323,
+      "id": "uDA3S6vn2j4"
+    },
+    {
+      "name": "hars",
+      "password": "fsdf",
+      "skills": [
+        "fsf"
+      ],
+      "id": "eu6Vhfv3wRQ"
+    },
+    {
+      "name": "harsh",
+      "password": "hgg",
+      "skills": [
+        "ty"
+      ],
+      "id": "3cDEa6r6NtM"
+    },
+    {
+      "name": "ggf",
+      "password": "fg",
+      "skills": [
+        "gf"
+      ],
+      "id": "fnt4aykqDHM"
+    },
+    {
+      "name": "ggf",
+      "password": "fg",
+      "skills": [
+        "gf"
+      ],
+      "id": "Ykwd6jjherY"
+    },
+    {
+      "name": "ggf",
+      "password": "fg",
+      "skills": [
+        "gf"
+      ],
+      "id": "NX9qgsKV5mM"
+    },
+    {
+      "name": "harsh",
+      "password": "harsh",
+      "skills": [
+        "code"
+      ],
+      "id": "IPtFwBR1cyc"
+    },
+    {
+      "name": "harsh",
+      "password": "fefd",
+      "skills": [
+        "sfs"
+      ],
+      "email": "singh@gmail.com",
+      "id": "uaoT0Xq3zZM"
+    },
+    {
+      "name": "h",
+      "password": "hg",
+      "skills": [
+        "hg",
+        "hgh",
+        "hghg"
+      ],
+      "email": "hgg@mail.com",
+      "id": "aHvs92URSJo"
+    },
+    {
+      "name": "harsh",
+      "password": "harsh",
+      "skills": [
+        "code",
+        "ggg"
+      ],
+      "email": "h@gmail.com",
+      "id": "6qLxxCkDMKM"
+    },
+    {
+      "name": "hgh",
+      "password": "sdf",
+      "skills": [
+        "sfd"
+      ],
+      "email": "hggh@mail.com",
+      "id": "2Tp1rn4s5uU"
+    },
+    {
+      "name": "harsh",
+      "password": "ere",
+      "skills": [
+        "node"
+      ],
+      "email": "hartf@gmail.com",
+      "id": "B7BR1kiEkTI"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
