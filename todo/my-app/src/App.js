@@ -1,29 +1,25 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
 
+  //load and save task
 
- //load and save task
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (storedTasks) setTasks(storedTasks);
+  }, []);
 
-useEffect(() => {
-const storedTasks = JSON.parse(localStorage.getItem('tasks'));
-if (storedTasks) setTasks(storedTasks);
-}, []);
-
-
-// useEffect(() => {
-// //  const tasked = JSON.parse(localStorage.getItem('tasks'))
-// //  if(tasked) setTasks(tasked)
-
-
-      
-// }, [tasks]);
+  // useEffect(() => {
+  // //  const tasked = JSON.parse(localStorage.getItem('tasks'))
+  // //  if(tasked) setTasks(tasked)
+  // }, [tasks]);
   
+
 
   const addTask = () => {
     if (task.trim() === "") {
@@ -31,20 +27,32 @@ if (storedTasks) setTasks(storedTasks);
       return;
     }
 
-    setTasks([...tasks, { text: task, completed: false }]);
-    localStorage.setItem('tasks', JSON.stringify([...tasks, { text: task, completed: false }]));
+    
+
+    setTasks([...tasks, { text: task, completed: {} }]);
+    localStorage.setItem(
+      "tasks",
+      JSON.stringify([...tasks, { text: task, completed: {} }]),
+    );
     setTask("");
   };
 
+  
+
   const deleteTask = (index) => {
-    const updated = tasks.filter((_, i) => i !== index);
-    setTasks(updated);
+    let updated = (tasks.filter((element, i) => i !== index));
+    localStorage.setItem("tasks", JSON.stringify(updated))
+   
+    
+    console.log(updated)
+    setTasks(updated)
     
   };
 
   const markComplete = (index) => {
     const updated = [...tasks];
     updated[index].completed = !updated[index].completed;
+    localStorage.setItem("tasks", JSON.stringify(updated))
     setTasks(updated);
   };
 
@@ -60,7 +68,6 @@ if (storedTasks) setTasks(storedTasks);
     return "Complete";
   };
 
- 
   const getFilteredTasks = () => {
     if (filter === "completed") {
       return tasks.filter((t) => t.completed === true);
@@ -104,7 +111,6 @@ if (storedTasks) setTasks(storedTasks);
             </button>
 
             <button onClick={() => deleteTask(index)}>Delete</button>
-            
           </li>
         ))}
       </ul>
@@ -113,4 +119,5 @@ if (storedTasks) setTasks(storedTasks);
 }
 
 export default App;
+
 
