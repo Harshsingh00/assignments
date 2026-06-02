@@ -1,0 +1,64 @@
+const onSubmit = async (data) => {
+  try {
+    let response;
+
+    if (editingId) {
+      // UPDATE EXISTING EMPLOYEE
+      response = await fetch(
+        `http://localhost:3001/employees/${editingId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...data,
+            id: editingId,
+          }),
+        }
+      );
+
+      alert("Employee updated successfully!");
+    } else {
+      // ADD NEW EMPLOYEE
+      response = await fetch("http://localhost:3001/employees", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      alert("Employee added successfully!");
+    }
+
+    if (!response.ok) {
+      throw new Error("Operation failed");
+    }
+
+    reset();
+    setEditingId(null);
+    fetchEmployees();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
+
+<button
+  type="button"
+  onClick={() => editEmployee(emp)}
+  className="w-full bg-cyan-600 text-white py-2 px-4 rounded hover:bg-cyan-900 transition"
+>
+  EDIT
+</button>
+
+
+
+<input
+  className="w-full bg-cyan-600 text-white py-2 px-4 rounded hover:bg-cyan-900 transition"
+  type="submit"
+  value={editingId ? "UPDATE EMPLOYEE" : "ADD EMPLOYEE"}
+/>
